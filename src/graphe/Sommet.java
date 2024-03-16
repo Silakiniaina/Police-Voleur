@@ -2,12 +2,14 @@ package graphe;
 
 import java.awt.Point;
 
+import components.Mobile;
 import display.Terrain;
 public class Sommet {
     Sommet[] voisins;
     Point position;
     Terrain terrain;
 
+    
     public Sommet() {}
 
     public Sommet(Point position){
@@ -30,5 +32,13 @@ public class Sommet {
     }
     public void setPosition(Point position) {
         this.position = position;
+    }
+    
+    public Terrain getTerrain() {
+        return terrain;
+    }
+    
+    public void setTerrain(Terrain terrain) {
+        this.terrain = terrain;
     }
 }
