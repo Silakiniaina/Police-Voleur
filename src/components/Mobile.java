@@ -6,6 +6,12 @@ import graphe.Sommet;
 public class Mobile extends JPanel{
     Sommet sommet;
 
+    public Mobile() {}
+
+    public Mobile(Sommet s){
+        this.setSommet(s);
+    }
+    
     public Sommet getSommet() {
         return sommet;
     }
