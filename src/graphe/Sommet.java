@@ -10,7 +10,7 @@ public class Sommet {
     public Sommet(Point position){
         this.setPosition(position);
     }
-    
+
     public Sommet(Sommet[] voisin, Point position){
         this.setVoisins(voisin);
         this.setPosition(position);
