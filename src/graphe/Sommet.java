@@ -21,6 +21,18 @@ public class Sommet {
         this.setPosition(position);
     }
 
+    public boolean isTaken(){
+        boolean result = false; 
+        Mobile[] ls = this.getTerrain().getListMobile();
+        for(int i=0; i<ls.length; i++){
+            if(ls[i].getSommet() == this){
+                result = true; 
+                break;
+            }
+        }
+        return result;
+    }
+
     public Sommet[] getVoisins() {
         return voisins;
     }
@@ -33,7 +45,7 @@ public class Sommet {
     public void setPosition(Point position) {
         this.position = position;
     }
-    
+
     public Terrain getTerrain() {
         return terrain;
     }
