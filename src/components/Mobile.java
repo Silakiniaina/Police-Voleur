@@ -11,7 +11,11 @@ public class Mobile extends JPanel{
     public Mobile(Sommet s){
         this.setSommet(s);
     }
-    
+
+    public void move(Sommet s){
+        this.setSommet(s);
+    }
+
     public Sommet getSommet() {
         return sommet;
     }
