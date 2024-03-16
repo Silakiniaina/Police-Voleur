@@ -9,6 +9,12 @@ public class Terrain extends JPanel{
     Sommet[] listSommet; 
     Mobile[] listMobile;
 
+    public Terrain() {}
+
+    public Terrain(Sommet[] ls, Mobile[] lm){
+        this.setListSommet(ls);
+        this.setListMobile(lm);
+    }
     
     public Sommet[] getListSommet() {
         return listSommet;
