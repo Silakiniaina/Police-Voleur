@@ -1,5 +1,8 @@
 package components;
 
-public class Mobile {
-    
+import javax.swing.JPanel;
+import graphe.Sommet;
+
+public class Mobile extends JPanel{
+    Sommet sommet;
 }
