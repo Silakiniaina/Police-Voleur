@@ -1,9 +1,12 @@
 package graphe;
 
 import java.awt.Point;
+
+import display.Terrain;
 public class Sommet {
     Sommet[] voisins;
     Point position;
+    Terrain terrain;
 
     public Sommet() {}
 
