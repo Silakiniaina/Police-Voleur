@@ -15,6 +15,7 @@ public class Terrain extends JPanel{
     public Terrain() {}
 
     public Terrain(Sommet[] ls, Mobile[] lm){
+        this.setLayout(null);
         this.setListSommet(ls);
         this.setListMobile(lm);
     }
@@ -29,6 +30,11 @@ public class Terrain extends JPanel{
         return listMobile;
     }
     public void setListMobile(Mobile[] listMobile) {
+        for(int i=0; i<listMobile.length; i++){
+            Mobile m = listMobile[i];
+            m.setBounds((int)m.getSommet().getPosition().getX(), (int)m.getSommet().getPosition().getY(), 50, 50);
+            this.add(m);
+        }
         this.listMobile = listMobile;
     }
 
