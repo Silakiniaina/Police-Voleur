@@ -8,6 +8,10 @@ import components.Mobile;
 public class MobileListener implements MouseListener {
     Mobile mobile;
 
+    public MobileListener(Mobile m){
+        this.setMobile(m);
+    }
+    
     public Mobile getMobile() {
         return mobile;
     }
