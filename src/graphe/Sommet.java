@@ -13,15 +13,18 @@ import listener.SommetListener;
 public class Sommet extends JPanel {
     Sommet[] voisins;
     Point position;
+    int id;
+    
     Terrain terrain;
     boolean isInChoice;
     
     
     public Sommet() {}
 
-    public Sommet(Point position){
+    public Sommet(Point position,int id){
         this.setPosition(position);
         this.addMouseListener(new SommetListener(this));
+        this.setId(id);
     }
     
     public Sommet(Sommet[] voisin, Point position){
@@ -81,6 +84,14 @@ public class Sommet extends JPanel {
         this.terrain = terrain;
     }
 
+    public int getId() {
+        return id;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void draw(Graphics g){
         if(this.isTaken())this.setVisible(false);
         else{
@@ -90,6 +101,8 @@ public class Sommet extends JPanel {
                 g.setColor(Color.YELLOW);
                 g.drawRect((int)this.getPosition().getX() - 2, (int)this.getPosition().getY() - 2 , 13, 13);
             }
+            g.setColor(Color.BLUE);
+            g.drawString(String.valueOf(this.getId()), (int)this.getPosition().getX(), (int)this.getPosition().getY());
         }
     }
 }
