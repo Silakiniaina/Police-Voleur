@@ -1,9 +1,11 @@
 package components;
 
+import java.awt.Graphics;
+
 import javax.swing.JPanel;
 import graphe.Sommet;
 
-public class Mobile extends JPanel{
+public abstract class Mobile extends JPanel{
     Sommet sommet;
 
     public Mobile() {}
@@ -23,4 +25,6 @@ public class Mobile extends JPanel{
     public void setSommet(Sommet sommet) {
         this.sommet = sommet;
     }
+    
+    public abstract void draw(Graphics g);
 }

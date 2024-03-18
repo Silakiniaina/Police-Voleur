@@ -15,7 +15,7 @@ public class Terrain extends JPanel{
         this.setListSommet(ls);
         this.setListMobile(lm);
     }
-    
+     
     public Sommet[] getListSommet() {
         return listSommet;
     }
