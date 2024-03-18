@@ -1,5 +1,8 @@
 package display;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 import javax.swing.JPanel;
 
 import components.Mobile;
@@ -27,5 +30,14 @@ public class Terrain extends JPanel{
     }
     public void setListMobile(Mobile[] listMobile) {
         this.listMobile = listMobile;
+    }
+
+    public void paintComponent(Graphics g){
+        g.setColor(Color.BLACK);
+        g.drawRect(0, 0, this.getWidth(), this.getHeight());
+        for(int i=0; i<this.getListMobile().length; i++){
+            Mobile s = this.getListMobile()[i];
+            s.draw(g);
+        }
     }
 }
