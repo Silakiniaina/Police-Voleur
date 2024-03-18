@@ -9,7 +9,7 @@ public class SommetListener implements MouseListener {
     Sommet sommet;
     
     public SommetListener() {}
-    
+
     public SommetListener(Sommet s){
         this.setSommet(s);
     }
@@ -26,9 +26,9 @@ public class SommetListener implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         if(e.getButton() == MouseEvent.BUTTON1){
             System.out.println("Clicked sommet");
-            // if(this.getSommet().isInChoice()){
-            //     this.getSommet().getTerrain().getVoleur().move(this.getSommet());
-            // }
+            if(this.getSommet().isInChoice()){
+                this.getSommet().getTerrain().getVoleur().move(this.getSommet());
+            }
         }
     }
 

@@ -12,7 +12,7 @@ public class MobileListener implements MouseListener {
     Mobile mobile;
     Terrain terrain;
 
-    public MobileListener()}{}
+    public MobileListener(){}
 
     public MobileListener(Mobile m){
         this.setMobile(m);
@@ -35,8 +35,7 @@ public class MobileListener implements MouseListener {
                 Sommet s = ls.get(i);
                 s.setInChoice(true);
             }
-       }
-        
+       } 
     }
 
     @Override

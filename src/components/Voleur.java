@@ -17,5 +17,4 @@ public class Voleur extends Mobile {
         g.setColor(Color.RED);
         g.fillRect((int)this.getSommet().getPosition().getX() - 5, (int)this.getSommet().getPosition().getY() - 5, 20, 20);   
     }
-    
 }

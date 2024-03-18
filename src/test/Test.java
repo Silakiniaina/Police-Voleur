@@ -36,7 +36,6 @@ public class Test {
         Point p20 = new Point(295,365);
         Point p21 = new Point(295,265);
 
-        Sommet[] voisin21 = new Sommet[4];
         
         Sommet s1 = new Sommet(p1);
         Sommet s2 = new Sommet(p2);
@@ -59,12 +58,52 @@ public class Test {
         Sommet s19 = new Sommet(p19);
         Sommet s20 = new Sommet(p20);
         Sommet s21 = new Sommet(p21);
+
+        // Voisin
+        Sommet[] voisin21 = new Sommet[4];
         voisin21[0] = s17;
         voisin21[1] = s18;
         voisin21[2] = s19;
         voisin21[3] = s20; 
         s21.setVoisins(voisin21);
 
+        Sommet[] voisin20 = new Sommet[4];
+        voisin21[0] = s15;
+        voisin21[1] = s17;
+        voisin21[2] = s19;
+        voisin21[3] = s21; 
+        s20.setVoisins(voisin20);
+
+        Sommet[] voisin19 = new Sommet[4];
+        voisin21[0] = s14;
+        voisin21[1] = s20;
+        voisin21[2] = s21;
+        voisin21[3] = s18; 
+        s19.setVoisins(voisin19);
+
+        Sommet[] voisin18 = new Sommet[4];
+        voisin21[0] = s13;
+        voisin21[1] = s21;
+        voisin21[2] = s19;
+        voisin21[3] = s17; 
+        s18.setVoisins(voisin18);
+
+        Sommet[] voisin17 = new Sommet[4];
+        voisin21[0] = s16;
+        voisin21[1] = s21;
+        voisin21[2] = s18;
+        voisin21[3] = s20; 
+        s17.setVoisins(voisin17);
+
+        Sommet[] voisin16 = new Sommet[4];
+        voisin21[0] = s17;
+        voisin21[1] = s10;
+        voisin21[2] = s11;
+        voisin21[3] = s12; 
+        s16.setVoisins(voisin16);
+
+
+        
         Sommet[] listSommet = new Sommet[21];
         listSommet[0] = s1;
         listSommet[1] = s2;
