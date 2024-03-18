@@ -2,13 +2,19 @@ package display;
 
 import java.awt.Color;
 import java.awt.Graphics;
+
 import javax.swing.JPanel;
 import components.Mobile;
+import components.Voleur;
 import graphe.Sommet;
+import listener.MobileListener;
+import listener.SommetListener;
 
 public class Terrain extends JPanel{
     Sommet[] listSommet; 
     Mobile[] listMobile;
+    SommetListener sommetListener = new SommetListener(null);
+    MobileListener mobileListener = new MobileListener(null);
 
     public Terrain() {}
 
@@ -24,6 +30,7 @@ public class Terrain extends JPanel{
     public void setListSommet(Sommet[] listSommet) {
         for(int i=0; i<listSommet.length; i++){
             Sommet s = listSommet[i];
+            s.setTerrain(this);
             s.setBounds((int)s.getPosition().getX(), (int)s.getPosition().getY(), 20, 20);
             this.add(s);
         }
@@ -33,14 +40,25 @@ public class Terrain extends JPanel{
         return listMobile;
     }
     public void setListMobile(Mobile[] listMobile) {
-        if(this.getListMobile() != null){
+        if(listMobile != null){
             for(int i=0; i<listMobile.length; i++){
                 Mobile m = listMobile[i];
-                m.setBounds((int)m.getSommet().getPosition().getX(), (int)m.getSommet().getPosition().getY(), 50, 50);
                 this.add(m);
             }
+            this.listMobile = listMobile;
         }
-        this.listMobile = listMobile;
+    }
+
+    public Voleur getVoleur(){
+        Voleur result = null; 
+        for(int i=0; i<this.getListMobile().length; i++){
+            Mobile m = this.getListMobile()[i];
+            if(m instanceof Voleur){
+                result = (Voleur)m;
+                break;
+            }
+        }
+        return result;
     }
 
     public void paint(Graphics g){

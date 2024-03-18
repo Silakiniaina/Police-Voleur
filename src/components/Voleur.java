@@ -4,11 +4,13 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 import graphe.Sommet;
+import listener.MobileListener;
 
 public class Voleur extends Mobile {
 
     public Voleur(Sommet s){
         super(s);
+        this.addMouseListener(new MobileListener(this));
     }
     @Override
     public void draw(Graphics g) {

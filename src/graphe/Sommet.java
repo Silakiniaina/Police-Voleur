@@ -9,23 +9,35 @@ import javax.swing.JPanel;
 
 import components.Mobile;
 import display.Terrain;
+import listener.SommetListener;
 public class Sommet extends JPanel {
     Sommet[] voisins;
     Point position;
     Terrain terrain;
-
+    boolean isInChoice;
+    
     
     public Sommet() {}
 
     public Sommet(Point position){
         this.setPosition(position);
+        this.addMouseListener(new SommetListener(this));
     }
-
+    
     public Sommet(Sommet[] voisin, Point position){
         this.setVoisins(voisin);
         this.setPosition(position);
+        this.setBounds((int)this.getPosition().getX(), (int)this.getPosition().getY(), 10, 10);
+        this.addMouseListener(new SommetListener(this));
+    }
+    
+    public boolean isInChoice() {
+        return isInChoice;
     }
 
+    public void setInChoice(boolean isInChoice) {
+        this.isInChoice = isInChoice;
+    }
     public boolean isTaken(){
         boolean result = false; 
         Mobile[] ls = this.getTerrain().getListMobile();
@@ -72,5 +84,9 @@ public class Sommet extends JPanel {
     public void draw(Graphics g){
         g.setColor(Color.BLACK);
         g.fillRect((int)this.getPosition().getX(), (int)this.getPosition().getY(), 10, 10);
+        if(this.isInChoice()){
+            g.setColor(Color.YELLOW);
+            g.drawRect((int)this.getPosition().getX() - 2, (int)this.getPosition().getY() - 2 , 13, 13);
+        }
     }
 }

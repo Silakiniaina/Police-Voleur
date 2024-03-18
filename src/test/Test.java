@@ -8,6 +8,7 @@ import components.Voleur;
 import display.Display;
 import display.Terrain;
 import graphe.Sommet;
+import listener.MobileListener;
 
 public class Test {
     public static void main(String[] args) {
@@ -34,6 +35,8 @@ public class Test {
         Point p19 = new Point(395,265);
         Point p20 = new Point(295,365);
         Point p21 = new Point(295,265);
+
+        Sommet[] voisin21 = new Sommet[4];
         
         Sommet s1 = new Sommet(p1);
         Sommet s2 = new Sommet(p2);
@@ -56,6 +59,11 @@ public class Test {
         Sommet s19 = new Sommet(p19);
         Sommet s20 = new Sommet(p20);
         Sommet s21 = new Sommet(p21);
+        voisin21[0] = s17;
+        voisin21[1] = s18;
+        voisin21[2] = s19;
+        voisin21[3] = s20; 
+        s21.setVoisins(voisin21);
 
         Sommet[] listSommet = new Sommet[21];
         listSommet[0] = s1;

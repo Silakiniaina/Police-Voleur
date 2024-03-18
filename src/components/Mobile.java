@@ -4,7 +4,6 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 import graphe.Sommet;
-
 public abstract class Mobile extends JPanel{
     Sommet sommet;
 
@@ -12,10 +11,12 @@ public abstract class Mobile extends JPanel{
 
     public Mobile(Sommet s){
         this.setSommet(s);
+        this.setBounds((int)this.getSommet().getPosition().getX() - 5, (int)this.getSommet().getPosition().getY() - 5, 20, 20);
     }
 
     public void move(Sommet s){
         this.setSommet(s);
+        System.out.println("Moving out");
     }
 
     public Sommet getSommet() {
@@ -25,6 +26,6 @@ public abstract class Mobile extends JPanel{
     public void setSommet(Sommet sommet) {
         this.sommet = sommet;
     }
-    
+
     public abstract void draw(Graphics g);
 }
