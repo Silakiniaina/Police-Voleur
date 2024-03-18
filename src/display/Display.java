@@ -7,6 +7,17 @@ import javax.swing.JFrame;
 public class Display extends JFrame{
     Terrain terrain;
 
+    public Display(){
+        this.initComponent();
+    }
+
+    public Display(Terrain t){
+        this.initComponent();
+        this.setTerrain(t);
+        t.setSize(this.getSize());
+        this.getContentPane().add(t);
+    }
+    
     public Terrain getTerrain() {
         return terrain;
     }
