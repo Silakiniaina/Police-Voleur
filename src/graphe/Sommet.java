@@ -1,10 +1,14 @@
 package graphe;
 
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Point;
+
+import javax.swing.JPanel;
 
 import components.Mobile;
 import display.Terrain;
-public class Sommet {
+public class Sommet extends JPanel {
     Sommet[] voisins;
     Point position;
     Terrain terrain;
@@ -52,5 +56,10 @@ public class Sommet {
     
     public void setTerrain(Terrain terrain) {
         this.terrain = terrain;
+    }
+
+    public void paintComponent(Graphics g){
+        g.setColor(Color.BLACK);
+        g.fillRect((int)this.getPosition().getX(), (int)this.getPosition().getY(), 20, 20);
     }
 }
