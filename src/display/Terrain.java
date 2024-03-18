@@ -2,9 +2,7 @@ package display;
 
 import java.awt.Color;
 import java.awt.Graphics;
-
 import javax.swing.JPanel;
-
 import components.Mobile;
 import graphe.Sommet;
 
