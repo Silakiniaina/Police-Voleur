@@ -3,6 +3,7 @@ package graphe;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.util.Vector;
 
 import javax.swing.JPanel;
 
@@ -32,6 +33,16 @@ public class Sommet extends JPanel {
             if(ls[i].getSommet() == this){
                 result = true; 
                 break;
+            }
+        }
+        return result;
+    }
+
+    public Vector<Sommet> getPossibilities(){
+        Vector<Sommet> result = new Vector<Sommet>();
+        for(int i=0; i<this.getVoisins().length; i++){
+            if(!this.getVoisins()[i].isTaken()){
+                result.add(this.getVoisins()[i]);
             }
         }
         return result;
