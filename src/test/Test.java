@@ -81,15 +81,19 @@ public class Test {
         listSommet[20] = s21;
         
         // Mobile
-        Police police1 = new Police(s3);
-        Voleur voleur1 = new Voleur(s1);
+        Police police1 = new Police(s20);
+        Police police2 = new Police(s18);
+        Police police3 = new Police(s19);
+        Voleur voleur1 = new Voleur(s21);
         
-        Mobile[] listMobile = new Mobile[2];
+        Mobile[] listMobile = new Mobile[4];
         listMobile[0] = police1;
-        listMobile[1] = voleur1;
+        listMobile[1] = police2;
+        listMobile[2] = police3;
+        listMobile[3] = voleur1;
         // Terrain
         
-        Terrain t = new Terrain(listSommet, null);
+        Terrain t = new Terrain(listSommet, listMobile);
         
         // Display
         Display d = new Display(t);
