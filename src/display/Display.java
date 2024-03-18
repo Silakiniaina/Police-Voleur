@@ -7,6 +7,14 @@ import javax.swing.JFrame;
 public class Display extends JFrame{
     Terrain terrain;
 
+    public Terrain getTerrain() {
+        return terrain;
+    }
+
+    public void setTerrain(Terrain terrain) {
+        this.terrain = terrain;
+    }
+
     public void initComponent(){
         this.setTitle("Police Voleur");
         this.setSize(600,600);
