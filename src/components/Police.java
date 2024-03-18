@@ -12,8 +12,8 @@ public class Police extends Mobile {
     }
     @Override
     public void draw(Graphics g) {
-        g.setColor(Color.GREEN);
-        g.fillRect((int)this.getSommet().getPosition().getX() - 5, (int)this.getSommet().getPosition().getY() - 5, 20, 20);   
+        g.setColor(Color.BLUE);
+        g.fillOval((int)this.getSommet().getPosition().getX() - 5, (int)this.getSommet().getPosition().getY() - 5, 20, 20);   
     }
     
 }

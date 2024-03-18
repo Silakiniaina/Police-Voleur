@@ -95,14 +95,12 @@ public class Sommet extends JPanel {
     public void draw(Graphics g){
         if(this.isTaken())this.setVisible(false);
         else{
-            g.setColor(Color.BLACK);
-            g.fillRect((int)this.getPosition().getX(), (int)this.getPosition().getY(), 10, 10);
             if(this.isInChoice()){
-                g.setColor(Color.YELLOW);
-                g.drawRect((int)this.getPosition().getX() - 2, (int)this.getPosition().getY() - 2 , 13, 13);
+                g.setColor(Color.GREEN);
+                g.fillOval((int)this.getPosition().getX(), (int)this.getPosition().getY(), 10, 10);
             }
-            g.setColor(Color.BLUE);
-            g.drawString(String.valueOf(this.getId()), (int)this.getPosition().getX(), (int)this.getPosition().getY());
+            // g.setColor(Color.BLUE);
+            // g.drawString(String.valueOf(this.getId()), (int)this.getPosition().getX(), (int)this.getPosition().getY());
         }
     }
 }

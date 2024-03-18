@@ -8,7 +8,6 @@ import components.Voleur;
 import display.Display;
 import display.Terrain;
 import graphe.Sommet;
-import listener.MobileListener;
 
 public class Test {
     public static void main(String[] args) {

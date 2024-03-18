@@ -21,7 +21,6 @@ public class Display extends JFrame{
     }
 
     public void setTerrain(Terrain terrain) {
-        terrain.setSize(this.getSize());
         this.getContentPane().add(terrain);
         this.terrain = terrain;
     }

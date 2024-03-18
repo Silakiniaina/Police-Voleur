@@ -27,7 +27,7 @@ public class SommetListener implements MouseListener {
         if(e.getButton() == MouseEvent.BUTTON1){
             System.out.println("Clicked sommet");
             if(this.getSommet().isInChoice()){
-                this.getSommet().getTerrain().getVoleur().move(this.getSommet());
+                this.getSommet().getTerrain().getVoleur().move(this.getSommet());  
             }
         }
     }
