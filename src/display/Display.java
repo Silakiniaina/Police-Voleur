@@ -14,15 +14,15 @@ public class Display extends JFrame{
     public Display(Terrain t){
         this.initComponent();
         this.setTerrain(t);
-        t.setSize(this.getSize());
-        this.getContentPane().add(t);
     }
-    
+
     public Terrain getTerrain() {
         return terrain;
     }
 
     public void setTerrain(Terrain terrain) {
+        terrain.setSize(this.getSize());
+        this.getContentPane().add(terrain);
         this.terrain = terrain;
     }
 

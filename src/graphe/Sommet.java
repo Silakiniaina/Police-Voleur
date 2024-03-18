@@ -58,8 +58,8 @@ public class Sommet extends JPanel {
         this.terrain = terrain;
     }
 
-    public void paintComponent(Graphics g){
+    public void draw(Graphics g){
         g.setColor(Color.BLACK);
-        g.fillRect((int)this.getPosition().getX(), (int)this.getPosition().getY(), 20, 20);
+        g.fillRect((int)this.getPosition().getX(), (int)this.getPosition().getY(), 10, 10);
     }
 }

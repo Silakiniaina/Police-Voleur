@@ -33,20 +33,37 @@ public class Terrain extends JPanel{
         return listMobile;
     }
     public void setListMobile(Mobile[] listMobile) {
-        for(int i=0; i<listMobile.length; i++){
-            Mobile m = listMobile[i];
-            m.setBounds((int)m.getSommet().getPosition().getX(), (int)m.getSommet().getPosition().getY(), 50, 50);
-            this.add(m);
+        if(this.getListMobile() != null){
+            for(int i=0; i<listMobile.length; i++){
+                Mobile m = listMobile[i];
+                m.setBounds((int)m.getSommet().getPosition().getX(), (int)m.getSommet().getPosition().getY(), 50, 50);
+                this.add(m);
+            }
         }
         this.listMobile = listMobile;
     }
 
-    public void paintComponent(Graphics g){
+    public void paint(Graphics g){
+        super.paint(g);
         g.setColor(Color.BLACK);
-        g.drawRect(0, 0, this.getWidth(), this.getHeight());
-        for(int i=0; i<this.getListMobile().length; i++){
-            Mobile s = this.getListMobile()[i];
+        g.drawOval(0, 0, this.getWidth(), this.getHeight());
+        g.drawLine(300, 0, 300, 600);
+        g.drawLine(0, 270, 600, 270);
+        g.drawOval(200,170,200,200);
+        g.drawArc(200,-20,200,80,170,190);
+        g.drawArc(200,500,200,80,0,190);
+        g.drawArc(520,170,80,200,90,190);
+        g.drawArc(-15,170,80,200,260,190);
+        if(this.getListMobile()!= null){
+            for(int i=0; i<this.getListMobile().length; i++){
+                Mobile s = this.getListMobile()[i];
+                s.draw(g);
+            }
+        }
+        for(int i=0; i<this.getListSommet().length; i++){
+            Sommet s = this.getListSommet()[i];
             s.draw(g);
         }
+        repaint();
     }
 }
