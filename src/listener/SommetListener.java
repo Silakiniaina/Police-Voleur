@@ -8,6 +8,7 @@ import graphe.Sommet;
 
 public class SommetListener implements MouseListener {
     Terrain terrain;
+    
     Sommet sommet;
 
     public SommetListener() {
@@ -61,5 +62,13 @@ public class SommetListener implements MouseListener {
         // TODO Auto-generated method stub
 
     }
-
+    
+    public Terrain getTerrain() {
+        return terrain;
+    }
+    
+    public void setTerrain(Terrain terrain) {
+        this.terrain = terrain;
+    }
+    
 }
