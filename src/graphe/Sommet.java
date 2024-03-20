@@ -23,7 +23,6 @@ public class Sommet extends JPanel {
 
     public Sommet(Point position,int id){
         this.setPosition(position);
-        this.addMouseListener(new SommetListener(this));
         this.setId(id);
     }
     
@@ -31,7 +30,6 @@ public class Sommet extends JPanel {
         this.setVoisins(voisin);
         this.setPosition(position);
         this.setBounds((int)this.getPosition().getX(), (int)this.getPosition().getY(), 10, 10);
-        this.addMouseListener(new SommetListener(this));
     }
     
     public boolean isInChoice() {

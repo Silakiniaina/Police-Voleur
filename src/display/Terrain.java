@@ -2,6 +2,7 @@ package display;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Vector;
 
 import javax.swing.JPanel;
 import components.Mobile;
@@ -13,8 +14,6 @@ import listener.SommetListener;
 public class Terrain extends JPanel{
     Sommet[] listSommet; 
     Mobile[] listMobile;
-    SommetListener sommetListener = new SommetListener(null);
-    MobileListener mobileListener = new MobileListener(null);
 
     public Terrain() {}
 
@@ -59,6 +58,16 @@ public class Terrain extends JPanel{
             }
         }
         return result;
+    }
+
+    public void showChoice(){
+        Vector<Sommet> ls = this.getVoleur().getSommet().getPossibilities();
+        for(int i=0; i<ls.size(); i++){
+            ls.get(i).setInChoice(true);
+        }
+        for(int i=0; i<this.getListSommet().length; i++){
+            if(!ls.contains(this.getListSommet()[i])) this.getListSommet()[i].setInChoice(false);
+        }
     }
 
     public void paint(Graphics g){
