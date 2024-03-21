@@ -147,7 +147,7 @@ public class Sommet extends JPanel {
     }
 
     public void place(Map t) {
-        int w = t.getWidth(), h = t.getHeight(), p = 10;
+        int w = t.getWidth(), h = t.getHeight() - 100, p = 10;
         int x = 0, y = 0;
         switch (this.getId()) {
             case 1:

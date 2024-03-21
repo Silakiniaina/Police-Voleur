@@ -1,6 +1,7 @@
 package display;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.util.Vector;
 
@@ -27,7 +28,7 @@ public class Map extends JPanel {
     }
 
     public void initComponent(){
-        this.setBounds(0,0,600,600);
+        this.setBounds(0,0,600,700);
         this.setLayout(null);
     }
 
@@ -149,17 +150,35 @@ public class Map extends JPanel {
         }
     }
 
+    public void drawTurnInformation(Graphics g){
+        int t = this.getTurn();
+        if(t == 0){
+            g.setColor(Color.RED);
+            g.fillRect(0,600,600,60);
+            g.setColor(Color.WHITE);
+            g.setFont(new Font("Arial",Font.BOLD,24));
+            g.drawString("Voleur's Turn",230,640);
+        }else{
+            g.setColor(Color.BLUE);
+            g.fillRect(0,600,600,60);
+            g.setColor(Color.WHITE);
+            g.setFont(new Font("Arial",Font.BOLD,24));
+            g.drawString("Police's Turn",230,640);
+        }
+    }
+
     public void paint(Graphics g) {
         super.paint(g);
-        int w = this.getWidth(), h = this.getHeight();
+        int w = this.getWidth(), h = this.getHeight() - 100;
         final int W_MAGIC_CONSTANT = (int)((w*100)/600);
         final int H_MAGIC_CONSTANT = (int)((h*100)/600);
         final int PH_MAGIC_CONSTANT = (int)((h * 80)/600);
         final int PW_MAGIC_CONSTANT = (int)((w * -20)/600);
         final int PADDING  = 10;
         //this.drawCroquis(g, h, w,PADDING);
+        this.drawTurnInformation(g);
         g.setColor(Color.BLACK);
-        g.drawOval(this.getX() + PADDING, this.getY() + PADDING, this.getWidth() - PADDING * 2, this.getHeight() - PADDING * 2);
+        g.drawOval(this.getX() + PADDING, this.getY() + PADDING, this.getWidth() - PADDING * 2, (this.getHeight() - 100) - PADDING * 2);
         g.drawLine((int)w/2, PADDING, (int)w/2, h - PADDING);
         g.drawLine(PADDING, (int)h/2, w - PADDING, (int)h/2);
         g.drawOval((int)w/2 - W_MAGIC_CONSTANT, (int)h/2 - H_MAGIC_CONSTANT, 200, 200);
@@ -177,7 +196,6 @@ public class Map extends JPanel {
             Sommet s = this.getListSommet()[i];
             s.draw(g);
         }
-        revalidate();
         repaint();
     }
 }
