@@ -19,7 +19,6 @@ public abstract class Mobile extends JPanel{
 
     public void move(Sommet s){
         this.setSommet(s);
-        System.out.println("Moving out");
         this.getSommet().getMap().hideChoice();
     }
 
