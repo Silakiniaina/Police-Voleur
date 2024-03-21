@@ -13,6 +13,6 @@ public class Voleur extends Mobile {
     @Override
     public void draw(Graphics g) {
         g.setColor(Color.RED);
-        g.fillOval((int)this.getSommet().getPosition().getX() - 5, (int)this.getSommet().getPosition().getY() - 5, 20, 20);   
+        g.fillOval((int)this.getSommet().getX() - 5, (int)this.getSommet().getY() - 5, 20, 20);   
     }
 }

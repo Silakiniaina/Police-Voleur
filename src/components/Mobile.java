@@ -11,13 +11,11 @@ public abstract class Mobile extends JPanel{
 
     public Mobile(Sommet s){
         this.setSommet(s);
-        this.setBounds((int)this.getSommet().getPosition().getX() - 5, (int)this.getSommet().getPosition().getY() - 5, 20, 20);
     }
 
     public void move(Sommet s){
         this.setSommet(s);
         System.out.println("Moving out");
-        this.setBounds((int)s.getPosition().getX() - 5,(int)s.getPosition().getY() - 5,20,20);
         this.getSommet().getTerrain().hideChoice();
     }
 
@@ -27,6 +25,7 @@ public abstract class Mobile extends JPanel{
 
     public void setSommet(Sommet sommet) {
         this.sommet = sommet;
+        this.setBounds((int)this.getSommet().getX() - 5, (int)this.getSommet().getY() - 5, 20, 20);
     }
 
     public abstract void draw(Graphics g);

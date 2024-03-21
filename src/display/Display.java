@@ -27,10 +27,11 @@ public class Display extends JFrame{
 
     public void initComponent(){
         this.setTitle("Police Voleur");
-        this.setSize(600,600);
+        this.setSize(1000,700);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
-        this.setResizable(false);
+        this.getContentPane().setLayout(null);
+        // this.setResizable(false);
         this.setBackground(Color.WHITE);
     }
 }

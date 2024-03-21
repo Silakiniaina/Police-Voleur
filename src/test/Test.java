@@ -11,50 +11,27 @@ import graphe.Sommet;
 
 public class Test {
     public static void main(String[] args) {
-        // List sommet
-        Point p1 = new Point(195, 10);
-        Point p2 = new Point(295, 0);
-        Point p3 = new Point(395, 15);
-        Point p4 = new Point(555, 165);
-        Point p5 = new Point(577, 265);
-        Point p6 = new Point(563, 365);
-        Point p7 = new Point(395, 535);
-        Point p8 = new Point(295, 555);
-        Point p9 = new Point(195, 540);
-        Point p10 = new Point(10, 365);
-        Point p11 = new Point(0, 265);
-        Point p12 = new Point(20, 165);
-        Point p13 = new Point(295, 57);
-        Point p14 = new Point(517, 265);
-        Point p15 = new Point(295, 497);
-        Point p16 = new Point(60, 265);
-        Point p17 = new Point(195, 265);
-        Point p18 = new Point(295, 165);
-        Point p19 = new Point(395, 265);
-        Point p20 = new Point(295, 365);
-        Point p21 = new Point(295, 265);
-
-        Sommet s1 = new Sommet(p1, 1);
-        Sommet s2 = new Sommet(p2, 2);
-        Sommet s3 = new Sommet(p3, 3);
-        Sommet s4 = new Sommet(p4, 4);
-        Sommet s5 = new Sommet(p5, 5);
-        Sommet s6 = new Sommet(p6, 6);
-        Sommet s7 = new Sommet(p7, 7);
-        Sommet s8 = new Sommet(p8, 8);
-        Sommet s9 = new Sommet(p9, 9);
-        Sommet s10 = new Sommet(p10, 10);
-        Sommet s11 = new Sommet(p11, 11);
-        Sommet s12 = new Sommet(p12, 12);
-        Sommet s13 = new Sommet(p13, 13);
-        Sommet s14 = new Sommet(p14, 14);
-        Sommet s15 = new Sommet(p15, 15);
-        Sommet s16 = new Sommet(p16, 16);
-        Sommet s17 = new Sommet(p17, 17);
-        Sommet s18 = new Sommet(p18, 18);
-        Sommet s19 = new Sommet(p19, 19);
-        Sommet s20 = new Sommet(p20, 20);
-        Sommet s21 = new Sommet(p21, 21);
+        Sommet s1 = new Sommet(1);
+        Sommet s2 = new Sommet(2);
+        Sommet s3 = new Sommet(3);
+        Sommet s4 = new Sommet(4);
+        Sommet s5 = new Sommet(5);
+        Sommet s6 = new Sommet(6);
+        Sommet s7 = new Sommet(7);
+        Sommet s8 = new Sommet(8);
+        Sommet s9 = new Sommet(9);
+        Sommet s10 = new Sommet(10);
+        Sommet s11 = new Sommet(11);
+        Sommet s12 = new Sommet(12);
+        Sommet s13 = new Sommet(13);
+        Sommet s14 = new Sommet(14);
+        Sommet s15 = new Sommet(15);
+        Sommet s16 = new Sommet(16);
+        Sommet s17 = new Sommet(17);
+        Sommet s18 = new Sommet(18);
+        Sommet s19 = new Sommet(19);
+        Sommet s20 = new Sommet(20);
+        Sommet s21 = new Sommet(21);
 
         // Voisin
         Sommet[] voisin21 = { s17, s18, s19, s20 };
