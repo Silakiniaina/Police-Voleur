@@ -4,6 +4,7 @@ import java.awt.Component;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 
 import components.Mobile;
 import display.Map;
@@ -33,15 +34,21 @@ public class Listener implements MouseListener {
             if(c instanceof Sommet){
                 Sommet s = (Sommet)c;
                 if (s.isInChoice()){
-                    if(this.getChoosen() != null)
-                        if(this.getChoosen().canMove()){
-                            this.getChoosen().move(s);
-                            this.getMap().switchTurn();
-                        }
-                    // else
-                    //     this.getMap().getVoleur().move(s);
+                    if(this.getChoosen() != null && this.getChoosen().canMove()){
+                        this.getChoosen().move(s);
+                        this.getMap().switchTurn();
+                    }else{
+                        System.out.println("It is not your turn");
+                    }
                 }else
                     System.out.println("Sommet not in choice");
+                if(this.getMap().isGameOver()){
+                    StringBuilder message = new StringBuilder();
+                    message.append("Game is Over, ");
+                    message.append(this.getMap().getWinner());
+                    message.append(" WIN");
+                    JOptionPane.showMessageDialog(null, message.toString());
+                }
             }else if(c instanceof Mobile){
                 Mobile m = (Mobile)c;
                 this.setChoosen(m);

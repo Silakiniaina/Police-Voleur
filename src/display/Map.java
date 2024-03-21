@@ -115,6 +115,22 @@ public class Map extends JPanel {
         }
     }
 
+    public boolean isGameOver(){
+        boolean result = false;
+        if(this.getVoleur().getSommet().getPossibilities().size() == 0 || this.getVoleur().getSommet().equals(this.getListSommet()[20])){
+            result = true;
+        }
+        return result;
+    }
+
+    public String getWinner(){
+        String result = "POLICE";
+        if( this.getVoleur().getSommet().equals(this.getListSommet()[20])){
+            result = "VOLEUR";
+        }
+        return result;
+    }
+
     public void drawCroquis(Graphics g,int h, int w, int p){
         g.setColor(Color.RED);
         g.drawLine(p*3, 0, p*3, h);

@@ -12,7 +12,6 @@ import javax.swing.JPanel;
 
 public class Game extends JFrame{
     Map terrain;
-
     
     public Game(){
         this.initComponent();
