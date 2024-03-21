@@ -7,12 +7,12 @@ import java.util.Vector;
 import javax.swing.JPanel;
 
 import components.Mobile;
-import display.Terrain;
+import display.Map;
 
 public class Sommet extends JPanel {
     Sommet[] voisins;
     int id;
-    Terrain terrain;
+    Map terrain;
     boolean isInChoice;
 
     public Sommet() {
@@ -32,7 +32,7 @@ public class Sommet extends JPanel {
 
     public boolean isTaken() {
         boolean result = false;
-        Mobile[] ls = this.getTerrain().getListMobile();
+        Mobile[] ls = this.getMap().getListMobile();
         for (int i = 0; i < ls.length; i++) {
             if (ls[i].getSommet() == this) {
                 result = true;
@@ -60,11 +60,11 @@ public class Sommet extends JPanel {
         this.voisins = voisins;
     }
 
-    public Terrain getTerrain() {
+    public Map getMap() {
         return terrain;
     }
 
-    public void setTerrain(Terrain terrain) {
+    public void setMap(Map terrain) {
         this.terrain = terrain;
         this.place(terrain);
     }
@@ -146,7 +146,7 @@ public class Sommet extends JPanel {
         return result;
     }
 
-    public void place(Terrain t) {
+    public void place(Map t) {
         int w = t.getWidth(), h = t.getHeight(), p = 10;
         int x = 0, y = 0;
         switch (this.getId()) {

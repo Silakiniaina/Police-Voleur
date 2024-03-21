@@ -6,22 +6,22 @@ import java.awt.event.MouseListener;
 import java.util.Vector;
 
 import components.Mobile;
-import display.Terrain;
+import display.Map;
 import graphe.Sommet;
 
-public class Ecoute implements MouseListener {
-    Terrain terrain;
+public class Listener implements MouseListener {
+    Map terrain;
     Mobile choosen;
     
-    public Ecoute(Terrain t) {
+    public Listener(Map t) {
         t.setEcoute(this);
-        this.setTerrain(t);
-        for (int i = 0; i < this.getTerrain().getListSommet().length; i++) {
-            Sommet s = this.getTerrain().getListSommet()[i];
+        this.setMap(t);
+        for (int i = 0; i < this.getMap().getListSommet().length; i++) {
+            Sommet s = this.getMap().getListSommet()[i];
             s.addMouseListener(this);
         }
-        for(int i=0; i < this.getTerrain().getListMobile().length; i++){
-            Mobile m = this.getTerrain().getListMobile()[i];
+        for(int i=0; i < this.getMap().getListMobile().length; i++){
+            Mobile m = this.getMap().getListMobile()[i];
             m.addMouseListener(this);
         }
     }
@@ -34,15 +34,18 @@ public class Ecoute implements MouseListener {
                 Sommet s = (Sommet)c;
                 if (s.isInChoice()){
                     if(this.getChoosen() != null)
-                        this.getChoosen().move(s);
-                    else
-                        this.getTerrain().getVoleur().move(s);
+                        if(this.getChoosen().canMove()){
+                            this.getChoosen().move(s);
+                            this.getMap().switchTurn();
+                        }
+                    // else
+                    //     this.getMap().getVoleur().move(s);
                 }else
                     System.out.println("Sommet not in choice");
             }else if(c instanceof Mobile){
                 Mobile m = (Mobile)c;
                 this.setChoosen(m);
-                this.getTerrain().showChoice();
+                this.getMap().showChoice();
                 Vector<Sommet> ls = m.getSommet().getPossibilities();
                 for(int i=0; i<ls.size(); i++){
                     Sommet s = ls.get(i);
@@ -76,11 +79,11 @@ public class Ecoute implements MouseListener {
 
     }
 
-    public Terrain getTerrain() {
+    public Map getMap() {
         return terrain;
     }
 
-    public void setTerrain(Terrain terrain) {
+    public void setMap(Map terrain) {
         this.terrain = terrain;
     }
     

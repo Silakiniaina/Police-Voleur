@@ -9,20 +9,20 @@ import components.Mobile;
 import components.Police;
 import components.Voleur;
 import graphe.Sommet;
-import listener.Ecoute;
+import listener.Listener;
 
-public class Terrain extends JPanel {
+public class Map extends JPanel {
     Sommet[] listSommet;
     Mobile[] listMobile;
-    Ecoute ecoute;
-    
-    
-    public Terrain() {
+    Listener ecoute;
+    int turn = 0;
+
+    public Map() {
         this.initComponent();
         this.setListSommet(Sommet.getListSommet());
         this.setListMobile();
         this.placeSommet(this.getListSommet());
-        Ecoute s = new Ecoute(this);
+        Listener s = new Listener(this);
 
     }
 
@@ -38,7 +38,7 @@ public class Terrain extends JPanel {
     public void setListSommet(Sommet[] listSommet) {
         for (int i = 0; i < listSommet.length; i++) {
             Sommet s = listSommet[i];
-            s.setTerrain(this);
+            s.setMap(this);
             s.setBounds((int) s.getX(), (int) s.getY(), 20, 20);
             this.add(s);
         }
@@ -48,26 +48,42 @@ public class Terrain extends JPanel {
     public Mobile[] getListMobile() {
         return listMobile;
     }
+
+    public void switchTurn(){
+        if(this.getTurn() == 0){
+            this.setTurn(1);
+        }else{
+            this.setTurn(0);
+        }
+    }
     
     public void setListMobile() {
         Sommet[] ls = this.getListSommet();
         Mobile[] lm = new Mobile[4];
-        lm[0] = new Voleur(ls[20]);
-        lm[1] = new Police(ls[19]);
-        lm[2] = new Police(ls[18]);
-        lm[3] = new Police(ls[17]);
+        lm[0] = new Voleur(ls[20],this);
+        lm[1] = new Police(ls[19],this);
+        lm[2] = new Police(ls[18],this);
+        lm[3] = new Police(ls[17],this);
         for(int i=0 ; i<lm.length; i++){
             this.add(lm[i]);
         }
         this.listMobile = lm;
     }
     
-    public Ecoute getEcoute() {
+    public Listener getEcoute() {
         return ecoute;
     }
 
-    public void setEcoute(Ecoute ecoute) {
+    public void setEcoute(Listener ecoute) {
         this.ecoute = ecoute;
+    }
+
+    public int getTurn() {
+        return turn;
+    }
+
+    public void setTurn(int turn) {
+        this.turn = turn;
     }
 
     public Voleur getVoleur() {
