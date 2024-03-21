@@ -6,6 +6,7 @@ import java.util.Vector;
 
 import javax.swing.JPanel;
 import components.Mobile;
+import components.Police;
 import components.Voleur;
 import graphe.Sommet;
 import listener.Ecoute;
@@ -16,19 +17,18 @@ public class Terrain extends JPanel {
     Ecoute ecoute;
     
     
-    public Terrain(Sommet[] ls, Mobile[] lm) {
+    public Terrain() {
         this.initComponent();
-        this.setListSommet(ls);
-        this.setListMobile(lm);
+        this.setListSommet(Sommet.getListSommet());
+        this.setListMobile();
         this.placeSommet(this.getListSommet());
         Ecoute s = new Ecoute(this);
 
     }
 
     public void initComponent(){
-        this.setBounds(0,0,600,610);
+        this.setBounds(0,0,600,600);
         this.setLayout(null);
-        this.setBackground(Color.GRAY);
     }
 
     public Sommet[] getListSommet() {
@@ -49,14 +49,17 @@ public class Terrain extends JPanel {
         return listMobile;
     }
     
-    public void setListMobile(Mobile[] listMobile) {
-        if (listMobile != null) {
-            for (int i = 0; i < listMobile.length; i++) {
-                Mobile m = listMobile[i];
-                this.add(m);
-            }
-            this.listMobile = listMobile;
+    public void setListMobile() {
+        Sommet[] ls = this.getListSommet();
+        Mobile[] lm = new Mobile[4];
+        lm[0] = new Voleur(ls[20]);
+        lm[1] = new Police(ls[19]);
+        lm[2] = new Police(ls[18]);
+        lm[3] = new Police(ls[17]);
+        for(int i=0 ; i<lm.length; i++){
+            this.add(lm[i]);
         }
+        this.listMobile = lm;
     }
     
     public Ecoute getEcoute() {

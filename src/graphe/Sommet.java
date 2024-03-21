@@ -79,12 +79,67 @@ public class Sommet extends JPanel {
         else{
             this.setVisible(true);
             if(this.isInChoice()){
-                g.setColor(Color.GREEN);
-                g.fillOval((int)this.getX(), (int)this.getY(), 15, 15);
+                g.setColor(Color.BLUE);
+                g.drawOval((int)this.getX(), (int)this.getY(), 15, 15);
             }
         }
         // g.setColor(Color.BLUE);
         // g.drawString(String.valueOf(this.getId()), this.getX(), this.getY());
+    }
+
+    public static Sommet[] getListSommet(){
+        Sommet[] result = new Sommet[21];
+        int index = 0;
+        for(int i=1; i<22; i++){
+            result[index] = new Sommet(i);
+            index += 1;
+        }
+
+        // Voisin
+        Sommet[] voisin21 = { result[16], result[17], result[18], result[19] };
+        result[20].setVoisins(voisin21);
+        Sommet[] voisin20 = { result[14], result[16], result[20], result[18] };
+        result[19].setVoisins(voisin20);
+        Sommet[] voisin19 = { result[13], result[19], result[20], result[17] };
+        result[18].setVoisins(voisin19);
+        Sommet[] voisin18 = { result[12], result[16], result[20], result[18] };
+        result[17].setVoisins(voisin18);
+        Sommet[] voisin17 = { result[15], result[17], result[20], result[19] };
+        result[16].setVoisins(voisin17);
+        Sommet[] voisin16 = { result[11], result[10], result[9], result[16] };
+        result[15].setVoisins(voisin16);
+        Sommet[] voisin15 = { result[8], result[7], result[6], result[19] };
+        result[14].setVoisins(voisin15);
+        Sommet[] voisin14 = { result[3], result[4], result[5], result[18] };
+        result[13].setVoisins(voisin14);
+        Sommet[] voisin13 = { result[0], result[1], result[2], result[17] };
+        result[12].setVoisins(voisin13);
+        Sommet[] voisin12 = { result[0], result[15], result[10] };
+        result[11].setVoisins(voisin12);
+        Sommet[] voisin11 = { result[11], result[15], result[9] };
+        result[10].setVoisins(voisin11);
+        Sommet[] voisin10 = { result[10], result[15], result[8] };
+        result[9].setVoisins(voisin10);
+        Sommet[] voisin9 = { result[9], result[14], result[7] };
+        result[8].setVoisins(voisin9);
+        Sommet[] voisin8 = { result[8], result[14], result[6] };
+        result[7].setVoisins(voisin8);
+        Sommet[] voisin7 = { result[7], result[14], result[5] };
+        result[6].setVoisins(voisin7);
+        Sommet[] voisin6 = { result[6], result[13], result[4] };
+        result[5].setVoisins(voisin6);
+        Sommet[] voisin5 = { result[5], result[13], result[3] };
+        result[4].setVoisins(voisin5);
+        Sommet[] voisin4 = { result[13], result[4], result[2] };
+        result[3].setVoisins(voisin4);
+        Sommet[] voisin3 = { result[3], result[12], result[1] };
+        result[2].setVoisins(voisin3);
+        Sommet[] voisin2 = { result[2], result[12], result[0] };
+        result[1].setVoisins(voisin2);
+        Sommet[] voisin1 = { result[1], result[12], result[11] };
+        result[0].setVoisins(voisin1);
+
+        return result;
     }
 
     public void place(Terrain t){
@@ -140,10 +195,10 @@ public class Sommet extends JPanel {
                 x = p + 65 ; y = (int)h/2 - 5;
                 break;
             case 17: 
-                x = p + 190; y = (int)h/2 - 5;
+                x = p + 185; y = (int)h/2 - 5;
                 break;
             case 18:
-                x = (int)((w/2) - 5); y = p + 190;  
+                x = (int)((w/2) - 5); y = p + 185;  
                 break;
             case 19: 
                 x = w - (p + 195); y = (int)h/2 - 5;
