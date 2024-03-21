@@ -18,6 +18,7 @@ public abstract class Mobile extends JPanel{
         this.setSommet(s);
         System.out.println("Moving out");
         this.setBounds((int)s.getPosition().getX() - 5,(int)s.getPosition().getY() - 5,20,20);
+        this.getSommet().getTerrain().hideChoice();
     }
 
     public Sommet getSommet() {

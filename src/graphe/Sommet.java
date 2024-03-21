@@ -3,21 +3,19 @@ package graphe;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.awt.event.MouseListener;
 import java.util.Vector;
 
 import javax.swing.JPanel;
 
 import components.Mobile;
 import display.Terrain;
-import listener.SommetListener;
 public class Sommet extends JPanel {
     Sommet[] voisins;
     Point position;
     int id;
-    
     Terrain terrain;
     boolean isInChoice;
-    
     
     public Sommet() {}
 
@@ -93,12 +91,11 @@ public class Sommet extends JPanel {
     public void draw(Graphics g){
         if(this.isTaken())this.setVisible(false);
         else{
+            this.setVisible(true);
             if(this.isInChoice()){
                 g.setColor(Color.GREEN);
                 g.fillOval((int)this.getPosition().getX(), (int)this.getPosition().getY(), 10, 10);
             }
-            // g.setColor(Color.BLUE);
-            // g.drawString(String.valueOf(this.getId()), (int)this.getPosition().getX(), (int)this.getPosition().getY());
         }
     }
 }

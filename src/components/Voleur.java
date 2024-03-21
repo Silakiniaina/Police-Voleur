@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 import graphe.Sommet;
-import listener.MobileListener;
 
 public class Voleur extends Mobile {
 
