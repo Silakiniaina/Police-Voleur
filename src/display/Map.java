@@ -24,7 +24,6 @@ public class Map extends JPanel {
         this.setListMobile();
         this.placeSommet(this.getListSommet());
         Listener s = new Listener(this);
-
     }
 
     public void initComponent(){
@@ -175,7 +174,7 @@ public class Map extends JPanel {
         final int PH_MAGIC_CONSTANT = (int)((h * 80)/600);
         final int PW_MAGIC_CONSTANT = (int)((w * -20)/600);
         final int PADDING  = 10;
-        //this.drawCroquis(g, h, w,PADDING);
+        //this.drawCroquis(g, h, w, PADDING);
         this.drawTurnInformation(g);
         g.setColor(Color.BLACK);
         g.drawOval(this.getX() + PADDING, this.getY() + PADDING, this.getWidth() - PADDING * 2, (this.getHeight() - 100) - PADDING * 2);
